@@ -17,7 +17,7 @@
   <body>
     <h1>Sign Up</h1>
 
-    <form action="welcome.html">
+    <form id="signupForm" action="welcome.html">
       First Name: <input type="text" name="fName" /><br />
       Last Name: <input type="text" name="lName" /><br />
       Gender: <input type="radio" name="gender" value="m" /> Male
@@ -45,6 +45,7 @@
       <span id="usernameError"></span><br />
       Password: <input type="password" id="password" name="password" /><br />
       Password Again: <input type="password" id="passwordAgain" /><br />
+      <span id="passwordAgainError"></span><br /><br />
 
       <input type="submit" value="Sign up!" />
     </form>
@@ -54,49 +55,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="scripts/script.js" async defer></script>
-
-    <!-- Script for Zip Code API -->
-    <script>
-      // Displaying City from API after typing a zip code
-      $("#zip").on("change", async function () {
-        let zipCode = $("#zip").val();
-        let url = `https://itcdland.csumb.edu/~milara/ajax/cityInfoByZip?zip=${zipCode}`;
-        let response = await fetch(url);
-        let data = await response.json();
-        $("#city").html(data.city);
-        $("#latitude").html(data.latitude);
-        $("#longitude").html(data.longitude);
-      }); // zip
-
-      // Displaying county information based on State selected
-      $("#state").on("change", async function () {
-        let state = $("#state").val();
-        let url = `https://itcdland.csumb.edu/~milara/ajax/countyList.php?state=${state}`;
-        let response = await fetch(url);
-        let data = await response.json();
-
-        $("#county").html("<option> Select one </option>");
-        for (let i = 0; i < data.length; i++) {
-          $("#county").append(`<option> ${data[i].county} </option>`);
-        }
-      }); // state
-
-      // Check desired username availability
-      $("#username").on("change", async function () {
-        let username = $("#username").val();
-        let url = `https://cst336.herokuapp.com/projects/api/usernamesAPI.php?username=${username}`;
-        let response = await fetch(url);
-        let data = await response.json();
-
-        if (data.available) {
-          $("#usernameError").html("Username available!");
-          $("#usernameError").css("color", "green");
-        } else {
-          $("#usernameError").html("Username not available!");
-          $("#usernameError").css("color", "red");
-        }
-      });
-    </script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
