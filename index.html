@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sign Up Page</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="/styles/style.css">
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Sign Up Page</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <h1>Sign Up</h1>
 
-        <h1> Sign Up </h1>
+    <form action="welcome.html">
+      First Name: <input type="text" name="fName" /><br />
+      Last Name: <input type="text" name="lName" /><br />
+      Gender: <input type="radio" name="gender" value="m" /> Male
+      <input type="radio" name="gender" value="f" /> Female<br /><br />
 
-        First Name: <input type="text" name="fName"><br>
-        Last Name: <input type="text" name="lName"><br>
-        Gender: <input type="radio" name="gender" value="m"> Male 
-                <input type="radio" name="gender" value="f"> Female<br><br>
-        
-        Zip Code: <input type="text" id="zip" name="zip"><br>
-        City: <span id="city"></span><br>
-        Latitude: <span id="latitude"></span><br>
-        Longitute: <span id="longitude"></span><br><br>
+      Zip Code: <input type="text" id="zip" name="zip" /><br />
+      City: <span id="city"></span><br />
+      Latitude: <span id="latitude"></span><br />
+      Longitute: <span id="longitude"></span><br /><br />
 
-        State:
-        <select id="state" name="state">
-            <option> Select One </option>
-            <option value="ca" > California </option>
-            <option value="ny"> New York </option>
-            <option value="tx"> Texas </option>
-        </select><br>
+      State:
+      <select id="state" name="state">
+        <option>Select One</option>
+        <option value="ca">California</option>
+        <option value="ny">New York</option>
+        <option value="tx">Texas</option></select
+      ><br />
 
-        Select a County: <select id="county"></select><br><br>
-        
-        Desired Username: <input type="text" id="username" name="username"><br>
+      Select a County:
+      <select id="county"></select
+      ><br /><br />
 
-        Password: <input type="password" id="password" name="password"><br>
-        Password Again: <input type="password" id="passwordAgain"><br>
+      Desired Username:
+      <input type="text" id="username" name="username" /><br />
+      <span id="usernameError"></span><br />
+      Password: <input type="password" id="password" name="password" /><br />
+      Password Again: <input type="password" id="passwordAgain" /><br />
 
-        <input type="submit" value="Sign up!">
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="scripts/script.js" async defer></script>
+      <input type="submit" value="Sign up!" />
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/script.js" async defer></script>
 
-        <!-- Script for Zip Code API -->
-        <script>
+    <!-- Script for Zip Code API -->
+    <script>
+      // Displaying City from API after typing a zip code
+      $("#zip").on("change", async function () {
+        let zipCode = $("#zip").val();
+        let url = `https://itcdland.csumb.edu/~milara/ajax/cityInfoByZip?zip=${zipCode}`;
+        let response = await fetch(url);
+        let data = await response.json();
+        $("#city").html(data.city);
+        $("#latitude").html(data.latitude);
+        $("#longitude").html(data.longitude);
+      }); // zip
 
-            // Displaying City from API after typing a zip code
-            $("#zip").on("change", async function(){
+      // Displaying county information based on State selected
+      $("#state").on("change", async function () {
+        let state = $("#state").val();
+        let url = `https://itcdland.csumb.edu/~milara/ajax/countyList.php?state=${state}`;
+        let response = await fetch(url);
+        let data = await response.json();
 
-                let zipCode = $("#zip").val();
-                let url = `https://itcdland.csumb.edu/~milara/ajax/cityInfoByZip?zip=${zipCode}`;
-                let response = await fetch(url);
-                let data = await response.json();
-                $("#city").html(data.city);
-                $("#latitude").html(data.latitude);
-                $("#longitude").html(data.longitude);
-            });// zip
+        $("#county").html("<option> Select one </option>");
+        for (let i = 0; i < data.length; i++) {
+          $("#county").append(`<option> ${data[i].county} </option>`);
+        }
+      }); // state
 
-            // Displaying county information based on State selected
-            $("#state").on("change",async function(){
+      // Check desired username availability
+      $("#username").on("change", async function () {
+        let username = $("#username").val();
+        let url = `https://cst336.herokuapp.com/projects/api/usernamesAPI.php?username=${username}`;
+        let response = await fetch(url);
+        let data = await response.json();
 
-                let state=$("#state").val();
-                let url = `https://itcdland.csumb.edu/~milara/ajax/countyList.php?state=${state}`;
-                let response = await fetch(url);
-                let data = await response.json();
-                
-                $("#county").html("<option> Select one </option>");
-                for (let i = 0; i < data.length; i++) {
-                    $("#county").append(`<option> ${data[i].county} </option>`)
-                }
-
-            });// state
-        </script>
-    </body>
+        if (data.available) {
+          $("#usernameError").html("Username available!");
+          $("#usernameError").css("color", "green");
+        } else {
+          $("#usernameError").html("Username not available!");
+          $("#usernameError").css("color", "red");
+        }
+      });
+    </script>
+  </body>
 </html>
