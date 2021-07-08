@@ -33,8 +33,11 @@
         <a class="nav-link active" href="index.html">Sign Up</a>
       </div>
     </nav>
-    <header class="container p-0 mb-5 border shadow-sm header-bg">
-      <section id="header-text" class="container d-inline-block text-light">
+    <header class="container p-0 mb-5 border border-dark shadow-sm header-bg">
+      <section
+        id="header-text"
+        class="container bg-dark d-inline-block text-light"
+      >
         <h1>Community Volunteer Drive</h1>
         <h4>
           <em>
@@ -51,7 +54,8 @@
       action="welcome.html"
     >
       <h2>Sign Up</h2>
-      <br /><br />
+      <hr />
+      <br />
       First Name: <input type="text" class="form-control" name="fName" /><br />
       Last Name: <input type="text" class="form-control" name="lName" /><br />
       Gender:
@@ -63,18 +67,44 @@
       Zip Code:
       <input type="text" class="form-control" id="zip" name="zip" />
       <span id="zipError" class="form-text"></span><br />
-      City: <span id="city"></span><br />
+
+      <table class="table-sm">
+        <tr>
+          <td>
+            City:
+          </td>
+          <td>
+            <span id="city"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Latitude:
+          </td>
+          <td>
+            <span id="latitude"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Longitude:
+          </td>
+          <td>
+            <span id="longitude"></span>
+          </td>
+        </tr>
+      </table><br>
+    
+
+      <!-- City: <span id="city"></span><br />
       Latitude: <span id="latitude"></span><br />
-      Longitute: <span id="longitude"></span><br /><br />
+      Longitute: <span id="longitude"></span><br /><br /> -->
 
       State:
       <select id="state" class="form-select" name="state">
         <option>Select One</option>
-        <!-- <option value="ca">California</option>
-        <option value="ny">New York</option>
-        <option value="tx">Texas</option> -->
       </select>
-        <br />
+      <br />
 
       Select a County:
       <select id="county" class="form-select"></select

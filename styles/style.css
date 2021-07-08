@@ -1,6 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&display=swap');
+
 #nav-logo {
   height: 3rem;
   width: auto;
+}
+
+h1, h2 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+h3, body {
+  font-family: 'Poppins', sans-serif;
+}
+
+nav a, nav a:visited {
+  color: black;
+}
+
+.active::before{
+  content: "[";
+}
+
+.active::after{
+  content: "]";
 }
 
 .header-bg {
@@ -19,10 +41,6 @@
 header {
   display:flex;
   flex-direction:column-reverse;
-}
-
-#header-text{
-  background-color: black;
 }
 
 #footer-text {
