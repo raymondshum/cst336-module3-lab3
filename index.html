@@ -61,7 +61,8 @@
       Female<br /><br />
 
       Zip Code:
-      <input type="text" class="form-control" id="zip" name="zip" /><br />
+      <input type="text" class="form-control" id="zip" name="zip" />
+      <span id="zipError" class="form-text"></span><br />
       City: <span id="city"></span><br />
       Latitude: <span id="latitude"></span><br />
       Longitute: <span id="longitude"></span><br /><br />
@@ -69,10 +70,11 @@
       State:
       <select id="state" class="form-select" name="state">
         <option>Select One</option>
-        <option value="ca">California</option>
+        <!-- <option value="ca">California</option>
         <option value="ny">New York</option>
-        <option value="tx">Texas</option></select
-      ><br />
+        <option value="tx">Texas</option> -->
+      </select>
+        <br />
 
       Select a County:
       <select id="county" class="form-select"></select

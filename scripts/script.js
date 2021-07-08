@@ -1,5 +1,6 @@
 // Variables
 var usernameAvailable = true;
+setState();
 
 // Displaying City from API after typing a zip code
 $("#zip").on("change", async function () {
@@ -7,9 +8,16 @@ $("#zip").on("change", async function () {
   let url = `https://itcdland.csumb.edu/~milara/ajax/cityInfoByZip?zip=${zipCode}`;
   let response = await fetch(url);
   let data = await response.json();
-  $("#city").html(data.city);
-  $("#latitude").html(data.latitude);
-  $("#longitude").html(data.longitude);
+  if(data) {
+    $("#zipError").html("");
+    $("#city").html(data.city);
+    $("#latitude").html(data.latitude);
+    $("#longitude").html(data.longitude);
+  }
+  else {
+    $("#zipError").html("Zip Code not found.");
+    $("#zipError").css("color", "red");
+  }
 }); // zip
 
 // Displaying county information based on State selected
@@ -23,7 +31,7 @@ $("#state").on("change", async function () {
   for (let i = 0; i < data.length; i++) {
     $("#county").append(`<option> ${data[i].county} </option>`);
   }
-}); // state
+}); // county
 
 // Check desired username availability
 $("#username").on("change", async function () {
@@ -33,7 +41,10 @@ $("#username").on("change", async function () {
   let response = await fetch(url);
   let data = await response.json();
 
-  if (data.available) {
+  if(username ==""){
+    $("#usernameError").html("");
+  }
+  else if (data.available) {
     $("#usernameError").html("Username available!");
     $("#usernameError").css("color", "green");
     usernameAvailable = true;
@@ -55,6 +66,8 @@ $("#signupForm").on("submit", function () {
 // Form validation
 function isFormValid() {
   isValid = true;
+  $("#usernameError").html("");
+  $("#passwordAgainError").html("");
 
   if (!usernameAvailable) {
     isValid = false;
@@ -67,7 +80,7 @@ function isFormValid() {
   }
 
   if ($("#password").val() != $("#passwordAgain").val()) {
-    $("#passwordAgainError").html("Password Mismatch!");
+    $("#passwordAgainError").html("Password Mismatch! Retype Password.");
     $("#passwordAgainError").css("color", "red");
     isValid = false;
   }
@@ -78,4 +91,16 @@ function isFormValid() {
     isValid = false;
   }
   return isValid;
-} // isFormValid
+}; // isFormValid
+
+// Populate state select menu
+async function setState(){
+  let url = "https://cst336.herokuapp.com/projects/api/state_abbrAPI.php";
+  let response=await fetch(url);
+  let data = await response.json();
+  console.log(data);
+  for(let i = 0; i < data.length; i++) {
+    $("#state").append(`<option value="${data[i].usps}">${data[i].state}</option>`);
+  }
+} // state
+
