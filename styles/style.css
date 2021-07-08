@@ -1,0 +1,41 @@
+#nav-logo {
+  height: 3rem;
+  width: auto;
+}
+
+.header-bg {
+  background-image: linear-gradient(
+      90deg,
+      rgba(3, 36, 0, .7) 0%,
+      rgba(49, 121, 9, .3) 50%,
+      rgba(0, 255, 80, .1) 100%
+    ),
+    url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:20rem;
+}
+
+header {
+  display:flex;
+  flex-direction:column-reverse;
+}
+
+#header-text{
+  background-color: black;
+}
+
+#footer-text {
+  text-align: right;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-image: url("../img/spikes.png");
+  margin-bottom: 10rem;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}

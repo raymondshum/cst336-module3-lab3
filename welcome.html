@@ -1,17 +1,78 @@
 <!DOCTYPE html>
 <html>
+  <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Welcome!</title>
+      <meta name="description" content="" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="/styles/style.css" />
     </head>
-    <body>
+    <body id="welcome">
+      <nav
+        id="nav-bar"
+        class="
+          navbar navbar-expand-lg
+          shadow
+          p-3
+          mb-5
+          bg-white-rounded bg-white
+        "
+      >
+        <a class="navbar-brand" href="#">
+          <img
+            id="nav-logo"
+            src="img\Innovatree_Clear.png"
+            alt="innovaTree logo"
+          />
+        </a>
+        <div class="navbar-nav" id="nav-options">
+          <a class="nav-link disabled" href="#">Home</a>
+          <a class="nav-link disabled" href="#">About</a>
+          <a class="nav-link disabled" href="#">Services</a>
+          <a class="nav-link active" href="index.html">Sign Up</a>
+        </div>
+      </nav>
+      
+      <main id="welcome-msg" class="container p-5 border bg-white shadow-lg">
+          <h3> Welcome <span id="fName"></span>,</h3>
+          <p><br>Congratulations! Your account has been created.</p>
+          <p>On behalf of innovaTree, I would like to thank you for joining your local community cleanup effort as a volunteer. This first step may seem to be a simple one. However, with all of us stepping forward together, we can move the world.</p>
+          <p>Best wishes,</p>
+          <img src="../img/signature.png" alt="Raymond Shum's signature">
+          <p>Raymond Shum <br>
+          Co-Founder, innovaTree Corp.</p>
 
-        <h1>Congrats! Your account was created!</h1>
-        
-        <script src="" async defer></script>
+      </main>
+
+      <footer class="fixed-bottom p-3 mt-5 bg-dark text-light">
+        <a class="navbar-brand" href="#">
+          <img
+            id="nav-logo"
+            src="img\csumb-logo-white-trans.png"
+            alt="innovaTree logo"
+          />
+        </a>
+        <section id="footer-text">
+          CST336 Internet Programming. 2021&copy; Shum
+          <br /><strong>Disclaimer</strong>: This website is a fictional student
+          project and should only be used for academic purposes.
+        </section>
+      </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
+      <script src="../scripts/welcome.js"></script>
     </body>
+  </html>
 </html>

@@ -14,22 +14,60 @@
     />
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
-  <body>
-    <h1>Sign Up</h1>
+  <body id="sign-up">
+    <nav
+      id="nav-bar"
+      class="navbar navbar-expand shadow p-3 mb-3 bg-white-rounded bg-white"
+    >
+      <a class="navbar-brand" href="#">
+        <img
+          id="nav-logo"
+          src="img\Innovatree_Clear.png"
+          alt="innovaTree logo"
+        />
+      </a>
+      <div class="navbar-nav" id="nav-options">
+        <a class="nav-link disabled" href="#">Home</a>
+        <a class="nav-link disabled" href="#">About</a>
+        <a class="nav-link disabled" href="#">Services</a>
+        <a class="nav-link active" href="index.html">Sign Up</a>
+      </div>
+    </nav>
+    <header class="container p-0 mb-5 border shadow-sm header-bg">
+      <section id="header-text" class="container d-inline-block text-light">
+        <h1>Community Volunteer Drive</h1>
+        <h4>
+          <em>
+            "A society grows great when old men plant trees whose shade they
+            know they shall never sit in."
+          </em>
+        </h4>
+      </section>
+    </header>
 
-    <form id="signupForm" action="welcome.html">
-      First Name: <input type="text" name="fName" /><br />
-      Last Name: <input type="text" name="lName" /><br />
-      Gender: <input type="radio" name="gender" value="m" /> Male
-      <input type="radio" name="gender" value="f" /> Female<br /><br />
+    <form
+      id="signupForm"
+      class="border p-5 container bg-white shadow-lg"
+      action="welcome.html"
+    >
+      <h2>Sign Up</h2>
+      <br /><br />
+      First Name: <input type="text" class="form-control" name="fName" /><br />
+      Last Name: <input type="text" class="form-control" name="lName" /><br />
+      Gender:
+      <input type="radio" class="form-check-radio" name="gender" value="m" />
+      Male
+      <input type="radio" class="form-check-radio" name="gender" value="f" />
+      Female<br /><br />
 
-      Zip Code: <input type="text" id="zip" name="zip" /><br />
+      Zip Code:
+      <input type="text" class="form-control" id="zip" name="zip" /><br />
       City: <span id="city"></span><br />
       Latitude: <span id="latitude"></span><br />
       Longitute: <span id="longitude"></span><br /><br />
 
       State:
-      <select id="state" name="state">
+      <select id="state" class="form-select" name="state">
         <option>Select One</option>
         <option value="ca">California</option>
         <option value="ny">New York</option>
@@ -37,18 +75,39 @@
       ><br />
 
       Select a County:
-      <select id="county"></select
+      <select id="county" class="form-select"></select
       ><br /><br />
 
       Desired Username:
-      <input type="text" id="username" name="username" /><br />
-      <span id="usernameError"></span><br />
-      Password: <input type="password" id="password" name="password" /><br />
-      Password Again: <input type="password" id="passwordAgain" /><br />
-      <span id="passwordAgainError"></span><br /><br />
+      <input type="text" class="form-control" id="username" name="username" />
+      <span id="usernameError" class="form-text"></span><br />
+      Password:
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        name="password"
+      /><br />
+      Password Again:
+      <input type="password" id="passwordAgain" class="form-control" />
+      <span id="passwordAgainError" class="form-text"></span><br /><br />
 
       <input type="submit" value="Sign up!" />
     </form>
+    <footer class="fixed-bottom p-3 mt-5 bg-dark text-light">
+      <a class="navbar-brand" href="#">
+        <img
+          id="nav-logo"
+          src="img\csumb-logo-white-trans.png"
+          alt="innovaTree logo"
+        />
+      </a>
+      <section id="footer-text">
+        CST336 Internet Programming. 2021&copy; Shum
+        <br /><strong>Disclaimer</strong>: This website is a fictional student
+        project and should only be used for academic purposes.
+      </section>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

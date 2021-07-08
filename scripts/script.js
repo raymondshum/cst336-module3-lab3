@@ -28,6 +28,7 @@ $("#state").on("change", async function () {
 // Check desired username availability
 $("#username").on("change", async function () {
   let username = $("#username").val();
+  localStorage.setItem("fName", $('input[name="fName"]').val());
   let url = `https://cst336.herokuapp.com/projects/api/usernamesAPI.php?username=${username}`;
   let response = await fetch(url);
   let data = await response.json();
