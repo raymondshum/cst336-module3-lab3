@@ -1,59 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&display=swap');
-
-#nav-logo {
-  height: 3rem;
-  width: auto;
+#footer-text
+{
+	font-family: 'Courier New', Courier, monospace;
+	text-align: right;
 }
-
-h1, h2 {
-  font-family: 'Abril Fatface', cursive;
+#nav-logo
+{
+	height: 3rem;
+	width: auto;
 }
-
-h3, body {
-  font-family: 'Poppins', sans-serif;
+.active::after
+{
+	content: "]";
 }
-
-nav a, nav a:visited {
-  color: black;
+.active::before
+{
+	content: "[";
 }
-
-.active::before{
-  content: "[";
+.header-bg
+{
+	background-image: linear-gradient(
+ 90deg,
+ rgba(3, 36, 0, .7) 0%,
+ rgba(49, 121, 9, .3) 50%,
+ rgba(0, 255, 80, .1) 100%
+ ),
+ url("../img/forest.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 20rem;
 }
-
-.active::after{
-  content: "]";
+body
+{
+	background-image: url("../img/spikes.png");
+	margin-bottom: 10rem;
 }
-
-.header-bg {
-  background-image: linear-gradient(
-      90deg,
-      rgba(3, 36, 0, .7) 0%,
-      rgba(49, 121, 9, .3) 50%,
-      rgba(0, 255, 80, .1) 100%
-    ),
-    url("../img/forest.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height:20rem;
+footer
+{
+	display: flex;
+	justify-content: space-between;
+  font-size: .5rem;
 }
-
-header {
-  display:flex;
-  flex-direction:column-reverse;
+h1, h2
+{
+	font-family: 'Abril Fatface', cursive;
 }
-
-#footer-text {
-  text-align: right;
-  font-family: 'Courier New', Courier, monospace;
+h3, body
+{
+	font-family: 'Poppins', sans-serif;
 }
-
-body {
-  background-image: url("../img/spikes.png");
-  margin-bottom: 10rem;
+header
+{
+	display: flex;
+	flex-direction: column-reverse;
 }
-
-footer {
-  display: flex;
-  justify-content: space-between;
+nav a, nav a:visited
+{
+	color: black;
+}
+nav a:hover{
+  color:red !important;
 }
